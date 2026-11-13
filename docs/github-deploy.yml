@@ -1,0 +1,25 @@
+name: Deploy
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+concurrency: deploy
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: bun install --frozen-lockfile
+      - run: bun run revisar
+      - run: bun run build
+      # Sin el secreto CLOUDFLARE_API_TOKEN solo se valida; con él, se publica.
+      - if: env.CLOUDFLARE_API_TOKEN != ''
+        run: bunx wrangler deploy

@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "gridj3",
+  "account_id": "a3375c8f8967ef2ae143b8e4495925c1",
+  "compatibility_date": "2026-11-01",
+  // Solo static assets: no hay código de Worker, Cloudflare sirve out/ desde el edge.
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  },
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": { "enabled": true }
+}

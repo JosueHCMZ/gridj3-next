@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "react",
+    "typescript",
+    "nextjs",
+    "jsx-a11y",
+    "unicorn"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "env": {
+    "browser": true
+  },
+  "ignorePatterns": [
+    "out/**",
+    ".next/**",
+    ".wrangler/**",
+    "public/sw.js"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-key": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "jsx-a11y/prefer-tag-over-role": "off",
+    "unicorn/prefer-add-event-listener": "off"
+  }
+}

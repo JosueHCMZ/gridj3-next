@@ -1,0 +1,43 @@
+{
+  "name": "gridj3",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "preview": "bun run build && wrangler dev",
+    "deploy": "bun run build && wrangler deploy",
+    "lint": "oxlint",
+    "tipos": "tsc --noEmit",
+    "iconos": "node scripts/iconos.mjs",
+    "revisar": "bun run lint && bun run tipos"
+  },
+  "dependencies": {
+    "jspdf": "^4.2.1",
+    "lucide-react": "^1.72.0",
+    "lz-string": "^1.5.0",
+    "motion": "^14.14.0",
+    "next": "16.4.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "oxlint": "^1.93.0",
+    "typescript": "^7",
+    "wrangler": "4"
+  },
+  "packageManager": "bun@1.4.4",
+  "ignoreScripts": [
+    "sharp",
+    "unrs-resolver"
+  ],
+  "trustedDependencies": [
+    "esbuild",
+    "sharp",
+    "unrs-resolver",
+    "workerd"
+  ]
+}
