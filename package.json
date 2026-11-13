@@ -8,7 +8,7 @@
     "preview": "bun run build && wrangler dev",
     "deploy": "bun run build && wrangler deploy",
     "lint": "oxlint",
-    "tipos": "tsc --noEmit",
+    "tipos": "next typegen && tsc --noEmit",
     "iconos": "node scripts/iconos.mjs",
     "revisar": "bun run lint && bun run tipos"
   },
